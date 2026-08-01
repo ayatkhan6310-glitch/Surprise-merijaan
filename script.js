@@ -327,11 +327,19 @@ setInterval(()=>{
 
 index++;
 
-if(index>=10){
+const totalSlides=document.querySelectorAll(".slides img").length;
 
-index=0;
+setInterval(()=>{
+    index++;
 
-}
+    if(index>=totalSlides){
+        index=0;
+    }
+
+    slide.style.transform=`translateX(-${index*100}%)`;
+
+},3000);
+      
 
 slide.style.transform="translateX(-"+(index*10)+"%)";
 
