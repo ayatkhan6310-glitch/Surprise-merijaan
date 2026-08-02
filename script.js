@@ -323,27 +323,24 @@ let slide=document.querySelector(".slides");
 
 let index=0;
 
-setInterval(()=>{
+const slides = document.querySelectorAll(".slides img");
 
-index++;
-
-const totalSlides=document.querySelectorAll(".slides img").length;
+let current = 0;
 
 setInterval(()=>{
-    index++;
 
-    if(index>=totalSlides){
-        index=0;
-    }
+current++;
 
-    slide.style.transform=`translateX(-${index*100}%)`;
+if(current >= slides.length){
 
-},3000);
-      
+current = 0;
 
-slide.style.transform="translateX(-"+(index*10)+"%)";
+}
+
+slide.style.transform = `translateX(-${current * 100}%)`;
 
 },3000);
+
 
 function confetti(){
 
@@ -436,5 +433,12 @@ h.remove();
 }
 
 function playMusic() {
-    document.getElementById("bgMusic").play();
+    const music = document.getElementById("bgMusic");
+
+    music.play().then(()=>{
+        console.log("Playing");
+    }).catch(err=>{
+        alert("Music couldn't start. Tap the button again.");
+        console.log(err);
+    });
 }
