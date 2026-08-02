@@ -449,30 +449,22 @@ function playMusic() {
 // FINAL PROPOSAL
 // ================================
 
-const noBtn=document.getElementById("noBtn");
+document.addEventListener("DOMContentLoaded",()=>{
 
+const noBtn=document.getElementById("noBtn");
 const funny=document.getElementById("funnyText");
 
 let tries=0;
 
 const msgs=[
-
 "😂 NO Allowed Nahi Hai",
-
 "🥹 Soch Lo Fir Se",
-
 "❤️ Dil Tod Dogi Kya?",
-
 "🙈 Pakad Ke Dikhao",
-
 "😏 Impossible",
-
 "💍 Nikah Cancel Ho Jayega 😂",
-
 "❤️ Sirf YES Hi Chalega",
-
 "🥰 Mujhe Pata Hai Tum YES Hi Karogi"
-
 ];
 
 function moveNo(){
@@ -481,37 +473,26 @@ tries++;
 
 const proposal=document.getElementById("proposal");
 
-const x=Math.random()*(proposal.offsetWidth-180);
-
+const x=Math.random()*(proposal.clientWidth-150);
 const y=Math.random()*180;
 
 noBtn.style.left=x+"px";
-
 noBtn.style.top=y+"px";
 
-funny.innerHTML=
-
-msgs[Math.floor(Math.random()*msgs.length)];
+funny.innerHTML=msgs[Math.floor(Math.random()*msgs.length)];
 
 if(tries>15){
-
 noBtn.innerHTML="❤️ I Love You Too";
-
 }
 
 }
 
 noBtn.addEventListener("mouseover",moveNo);
-
 noBtn.addEventListener("touchstart",moveNo);
-
-noBtn.addEventListener("click",(e)=>{
-
-e.preventDefault();
-
-moveNo();
+noBtn.addEventListener("click",moveNo);
 
 });
+
 
 function yesAnswer(){
 
