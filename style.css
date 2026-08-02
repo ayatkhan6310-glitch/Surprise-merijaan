@@ -533,14 +533,18 @@ box-shadow:0 20px 60px rgba(255,255,255,.15);
 }
 
 .slides{
-
 display:flex;
-
-width:1000%;
-
-transition:1s;
-
+transition:1s ease;
 }
+
+.slides img{
+width:100%;
+flex:0 0 100%;
+height:500px;
+object-fit:cover;
+border-radius:30px;
+}
+
 
 .slides img{
 
