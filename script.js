@@ -23,15 +23,20 @@ let password=document.getElementById("pass").value;
 if(password==="17.05.2026"){
 
 document.getElementById("passwordPage").style.display="none";
+
 document.getElementById("main").style.display="block";
 
+document.getElementById("bgMusic").play();
+
 }
+      
 else{
 
 alert("Sorry my mistake yaad karo jab ham apse milne aaye tha 1 hafte ke liye ❤️");
 
 }
-
+      
+      
 }
 
 
@@ -319,27 +324,24 @@ typing();
 AUTO SLIDER
 ====================== */
 
-let slide=document.querySelector(".slides");
-
-let index=0;
-
+const slide = document.querySelector(".slides");
 const slides = document.querySelectorAll(".slides img");
 
 let current = 0;
 
-setInterval(()=>{
+function autoSlide(){
 
 current++;
 
 if(current >= slides.length){
-
 current = 0;
+}
+
+slide.style.transform = `translateX(-${current*100}%)`;
 
 }
 
-slide.style.transform = `translateX(-${current * 100}%)`;
-
-},3000);
+setInterval(autoSlide,3000);
 
 
 function confetti(){
